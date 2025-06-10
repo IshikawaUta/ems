@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Catat Absensi Karyawan</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="employee_id" class="form-label">Pilih Karyawan</label>
+        <select class="form-select" id="employee_id" name="employee_id" required>
+            <option value="">-- Pilih Karyawan --</option>
+            {% for employee in employees %}
+                <option value="{{ employee._id }}">{{ employee.name }} ({{ employee.position }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status Absensi</label>
+        <select class="form-select" id="status" name="status" required>
+            <option value="Hadir">Hadir</option>
+            <option value="Sakit">Sakit</option>
+            <option value="Izin">Izin</option>
+            <option value="Alfa">Alfa</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Catat Absensi</button>
+    <a href="{{ url_for('attendance') }}" class="btn btn-secondary">Kembali</a>
+</form>
+{% endblock %}

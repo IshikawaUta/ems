@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card shadow-lg border-0 rounded-3">
+            {# Mengubah warna background judul menjadi biru solid (bg-primary) #}
+            <div class="card-header bg-primary text-white text-center py-4 rounded-top-3">
+                <i class="fas fa-user-plus fa-3x mb-2"></i> {# Ikon untuk Register #}
+                <h3 class="mb-0 fw-bold">Daftar Pengguna Baru</h3>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control rounded-pill px-3 py-2" id="username" name="username" required autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Kata Sandi</label>
+                        <input type="password" class="form-control rounded-pill px-3 py-2" id="password" name="password" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="role" class="form-label">Peran (Role)</label>
+                        <select class="form-select rounded-pill px-3 py-2" id="role" name="role" required>
+                            <option value="employee">Karyawan</option>
+                            <option value="manager">Manajer</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm">Daftar</button>
+                    </div>
+                </form>
+                <p class="mt-4 text-center text-muted">Sudah punya akun? <a href="{{ url_for('login') }}" class="text-primary fw-bold">Login di sini</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}

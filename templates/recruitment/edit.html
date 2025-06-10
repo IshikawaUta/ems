@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Edit Pelamar</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nama Pelamar</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ applicant.name }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="position_applied" class="form-label">Posisi yang Dilamar</label>
+        <input type="text" class="form-control" id="position_applied" name="position_applied" value="{{ applicant.position_applied }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status Pelamar</label>
+        <select class="form-select" id="status" name="status" required>
+            <option value="Baru" {% if applicant.status == 'Baru' %}selected{% endif %}>Baru</option>
+            <option value="Review CV" {% if applicant.status == 'Review CV' %}selected{% endif %}>Review CV</option>
+            <option value="Interview" {% if applicant.status == 'Interview' %}selected{% endif %}>Interview</option>
+            <option value="Diterima" {% if applicant.status == 'Diterima' %}selected{% endif %}>Diterima</option>
+            <option value="Ditolak" {% if applicant.status == 'Ditolak' %}selected{% endif %}>Ditolak</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+    <a href="{{ url_for('recruitment') }}" class="btn btn-secondary">Batal</a>
+</form>
+{% endblock %}

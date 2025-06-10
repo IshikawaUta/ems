@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Kelola Pengaturan Aplikasi</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="company_name" class="form-label">Nama Perusahaan</label>
+        <input type="text" class="form-control" id="company_name" name="company_name" value="{{ settings.company_name }}" placeholder="Masukkan nama perusahaan Anda">
+    </div>
+    <div class="mb-3">
+        <label for="timezone" class="form-label">Zona Waktu Default</label>
+        <select class="form-select" id="timezone" name="timezone" required>
+            <option value="Asia/Jakarta" {% if settings.timezone == 'Asia/Jakarta' %}selected{% endif %}>Asia/Jakarta (WIB)</option>
+            <option value="Asia/Makassar" {% if settings.timezone == 'Asia/Makassar' %}selected{% endif %}>Asia/Makassar (WITA)</option>
+            <option value="Asia/Jayapura" {% if settings.timezone == 'Asia/Jayapura' %}selected{% endif %}>Asia/Jayapura (WIT)</option>
+            <option value="UTC" {% if settings.timezone == 'UTC' %}selected{% endif %}>Coordinated Universal Time (UTC)</option>
+            <option value="America/New_York" {% if settings.timezone == 'America/New_York' %}selected{% endif %}>America/New_York</option>
+            <!-- Anda bisa menambahkan lebih banyak opsi zona waktu di sini -->
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Simpan Pengaturan</button>
+    <a href="{{ url_for('settings') }}" class="btn btn-secondary">Kembali</a>
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Ajukan Permintaan Cuti</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="employee_id" class="form-label">Pilih Karyawan</label>
+        <select class="form-select" id="employee_id" name="employee_id" required>
+            <option value="">-- Pilih Karyawan --</option>
+            {% for employee in employees %}
+                <option value="{{ employee._id }}">{{ employee.name }} ({{ employee.position }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="start_date" class="form-label">Tanggal Mulai Cuti</label>
+        <input type="date" class="form-control" id="start_date" name="start_date" required>
+    </div>
+    <div class="mb-3">
+        <label for="end_date" class="form-label">Tanggal Berakhir Cuti</label>
+        <input type="date" class="form-control" id="end_date" name="end_date" required>
+    </div>
+    <div class="mb-3">
+        <label for="reason" class="form-label">Alasan Cuti</label>
+        <textarea class="form-control" id="reason" name="reason" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajukan Cuti</button>
+    <a href="{{ url_for('leave') }}" class="btn btn-secondary">Kembali</a>
+</form>
+{% endblock %}

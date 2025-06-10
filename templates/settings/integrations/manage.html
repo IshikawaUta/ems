@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Kelola Pengaturan Integrasi</h2>
+<form method="POST">
+    <div class="card mb-3">
+        <div class="card-header">Integrasi Sistem HRIS (Contoh)</div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="hris_api_key" class="form-label">Kunci API HRIS</label>
+                <input type="text" class="form-control" id="hris_api_key" name="hris_api_key" value="{{ integrations.hris_api_key }}" placeholder="Masukkan kunci API HRIS Anda">
+                <div class="form-text">Kunci ini digunakan untuk terhubung dengan sistem HRIS eksternal.</div>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="payroll_sync_enabled" name="payroll_sync_enabled" {% if integrations.payroll_sync_enabled %}checked{% endif %}>
+                <label class="form-check-label" for="payroll_sync_enabled">Aktifkan Sinkronisasi Penggajian</label>
+                <div class="form-text">Jika diaktifkan, data penggajian akan disinkronkan.</div>
+            </div>
+            <div class="mb-3">
+                <label for="api_endpoint" class="form-label">Endpoint API Umum</label>
+                <input type="url" class="form-control" id="api_endpoint" name="api_endpoint" value="{{ integrations.api_endpoint }}" placeholder="Contoh: https://api.external.com/v1">
+                <div class="form-text">URL dasar untuk integrasi API.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anda bisa menambahkan blok pengaturan integrasi lainnya di sini -->
+
+    <button type="submit" class="btn btn-primary">Simpan Pengaturan Integrasi</button>
+    <a href="{{ url_for('settings') }}" class="btn btn-secondary">Kembali</a>
+</form>
+{% endblock %}

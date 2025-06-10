@@ -1,0 +1,122 @@
+/* Terapkan font Quicksand ke seluruh body */
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Variabel CSS (jangan dihapus) */
+:root {
+    --primary-color: #007bff; /* Biru Bootstrap */
+    --secondary-color: #6c757d; /* Abu-abu Bootstrap */
+    --info-color: #17a2b8; /* Cyan Bootstrap */
+    --success-color: #28a745; /* Hijau Bootstrap */
+    --warning-color: #ffc107; /* Kuning Bootstrap */
+    --danger-color: #dc3545; /* Merah Bootstrap */
+
+    --bright-blue: #007bff; /* Warna dasar biru cerah */
+    --light-blue: #66b3ff; /* Biru muda */
+    --gradient-start: #00c6ff; /* Awal gradien cerah */
+    --gradient-end: #0072ff;   /* Akhir gradien cerah */
+    --dashboard-bg: #f8f9fa; /* Background dashboard */
+    --card-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08); /* Shadow kartu */
+}
+
+/* Styling umum untuk hero section mini */
+.hero-section-mini {
+    background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: white; /* Default text color, bisa di-override */
+    border-radius: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+.hero-section-mini h1,
+.hero-section-mini p {
+    color: white; /* Mengubah warna teks menjadi putih */
+}
+
+
+/* Styling untuk Dashboard Cards */
+.dashboard-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease-in-out;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-card .card-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+.dashboard-card .card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.dashboard-card .card-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-card .card-text {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-card .btn {
+    margin-top: auto; /* Memastikan tombol selalu di bawah */
+}
+
+/* Styling untuk Navbar */
+.navbar {
+    background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.navbar .nav-link {
+    color: white !important;
+    font-weight: 500;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.navbar .navbar-brand {
+    color: white !important;
+    font-weight: 700;
+}
+
+.navbar .dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.navbar .dropdown-item {
+    font-weight: 400;
+    color: #333;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.navbar .btn-outline-light {
+    border-color: white;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-light:hover {
+    background-color: white;
+    color: var(--primary-color);
+}

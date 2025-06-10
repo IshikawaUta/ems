@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Tambah Jadwal Baru</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Judul Jadwal</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Deskripsi</label>
+        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="scheduled_date" class="form-label">Tanggal Dijadwalkan</label>
+        <input type="date" class="form-control" id="scheduled_date" name="scheduled_date" required>
+    </div>
+    <div class="mb-3">
+        <label for="employee_id" class="form-label">Karyawan Terkait (Opsional)</label>
+        <select class="form-select" id="employee_id" name="employee_id">
+            <option value="">-- Pilih Karyawan --</option>
+            {% for employee in employees %}
+                <option value="{{ employee._id }}">{{ employee.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="project_id" class="form-label">Proyek Terkait (Opsional)</label>
+        <select class="form-select" id="project_id" name="project_id">
+            <option value="">-- Pilih Proyek --</option>
+            {% for project in projects %}
+                <option value="{{ project._id }}">{{ project.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Tambah Jadwal</button>
+    <a href="{{ url_for('scheduling') }}" class="btn btn-secondary">Kembali</a>
+</form>
+<br>
+<br>
+{% endblock %}

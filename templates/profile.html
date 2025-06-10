@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-7 col-lg-6">
+        <div class="card shadow-lg border-0 rounded-3">
+            <div class="card-header bg-gradient-primary text-white text-center py-4 rounded-top-3">
+                <i class="fas fa-user-circle fa-3x mb-2"></i>
+                <h2 class="mb-0 fw-bold">Profil Pengguna</h2>
+                <p class="mb-0">{{ user.username }}</p>
+            </div>
+            <div class="card-body p-4">
+                <div class="row mb-3">
+                    <div class="col-sm-4 text-muted">Username:</div>
+                    <div class="col-sm-8 fw-semibold">{{ user.username }}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4 text-muted">Peran (Role):</div>
+                    <div class="col-sm-8 fw-semibold">
+                        {% if user.role == 'admin' %}
+                            <span class="badge bg-danger">{{ user.role.capitalize() }}</span>
+                        {% elif user.role == 'manager' %}
+                            <span class="badge bg-primary">{{ user.role.capitalize() }}</span>
+                        {% elif user.role == 'employee' %}
+                            <span class="badge bg-info text-dark">{{ user.role.capitalize() }}</span>
+                        {% else %}
+                            <span class="badge bg-secondary">{{ user.role.capitalize() }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4 text-muted">ID Pengguna:</div>
+                    <div class="col-sm-8 fw-light text-break">{{ user.id }}</div>
+                </div>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('edit_profile') }}" class="btn btn-primary"><i class="fas fa-edit me-2"></i>Edit Profil</a> {# Tautan edit profil diaktifkan #}
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left me-2"></i>Kembali ke Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

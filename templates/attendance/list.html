@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-4 mb-4 rounded-3 text-center hero-section-mini">
+    <div class="container-fluid py-3">
+        {# Menghapus kelas 'text-dark' dan 'text-secondary' agar warna teks mengikuti CSS di style.css (putih) #}
+        <h1 class="display-6 fw-bold mb-2">Daftar Absensi Karyawan</h1>
+        <p class="fs-5 mx-auto">Catat dan tinjau riwayat kehadiran serta status absensi karyawan.</p>
+    </div>
+</div>
+
+<div class="d-flex justify-content-start mb-4 gap-2">
+    <a href="{{ url_for('record_attendance') }}" class="btn btn-primary"><i class="fas fa-plus-circle me-2"></i>Catat Absensi Baru</a>
+</div>
+
+<div class="card shadow-sm mb-5">
+    <div class="card-body p-0">
+        {% if attendance %}
+        <div class="table-responsive">
+            <table class="table table-striped table-hover mb-0">
+                <thead class="table-dark text-white">
+                    <tr>
+                        <th scope="col">Karyawan</th>
+                        <th scope="col">Tanggal & Waktu</th>
+                        <th scope="col">Status</th>
+                        <!-- Tambahan kolom jika ada aksi seperti edit atau hapus absensi -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in attendance %}
+                    <tr>
+                        <td>{{ record.employee_name }}</td>
+                        <td>{{ record.date }}</td>
+                        <td>
+                            {% if record.status == 'Hadir' %}
+                                <span class="badge bg-success py-2 px-3 rounded-pill">{{ record.status }}</span>
+                            {% elif record.status == 'Sakit' %}
+                                <span class="badge bg-warning text-dark py-2 px-3 rounded-pill">{{ record.status }}</span>
+                            {% elif record.status == 'Izin' %}
+                                <span class="badge bg-info text-dark py-2 px-3 rounded-pill">{{ record.status }}</span>
+                            {% elif record.status == 'Alfa' %}
+                                <span class="badge bg-danger py-2 px-3 rounded-pill">{{ record.status }}</span>
+                            {% else %}
+                                <span class="badge bg-secondary py-2 px-3 rounded-pill">{{ record.status }}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="alert alert-info text-center m-4" role="alert">
+            Belum ada data absensi. <a href="{{ url_for('record_attendance') }}" class="alert-link">Catat absensi pertama</a>.
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

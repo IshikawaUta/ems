@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Tambah Pelamar Baru</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nama Pelamar</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="position_applied" class="form-label">Posisi yang Dilamar</label>
+        <input type="text" class="form-control" id="position_applied" name="position_applied" required>
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status Pelamar</label>
+        <select class="form-select" id="status" name="status" required>
+            <option value="Baru">Baru</option>
+            <option value="Review CV">Review CV</option>
+            <option value="Interview">Interview</option>
+            <option value="Diterima">Diterima</option>
+            <option value="Ditolak">Ditolak</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Tambah Pelamar</button>
+    <a href="{{ url_for('recruitment') }}" class="btn btn-secondary">Kembali</a>
+</form>
+{% endblock %}

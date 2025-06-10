@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-5 mb-4 rounded-3 text-center hero-section">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold text-white mb-3">Selamat Datang di Sistem Manajemen Karyawan</h1>
+        <p class="col-md-8 fs-4 mx-auto text-white-50">Kelola karyawan, absensi, rekrutmen, cuti, penggajian, proyek, dan penjadwalan dengan mudah.</p>
+        <a class="btn btn-light btn-lg mt-3 shadow-sm" href="{{ url_for('employees') }}" role="button">Mulai Jelajahi <i class="fas fa-arrow-right ms-2"></i></a>
+    </div>
+</div>
+
+<h2 class="text-center mb-4 mt-5">Fitur Utama</h2>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-users card-icon text-primary"></i>
+                <h5 class="card-title">Karyawan</h5>
+                <p class="card-text">Kelola data lengkap karyawan, termasuk informasi kontak dan jabatan.</p>
+                <a href="{{ url_for('employees') }}" class="btn btn-primary mt-auto">Lihat Karyawan</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-calendar-check card-icon text-success"></i>
+                <h5 class="card-title">Absensi</h5>
+                <p class="card-text">Catat kehadiran dan status absensi karyawan dengan mudah.</p>
+                <a href="{{ url_for('attendance') }}" class="btn btn-primary mt-auto">Kelola Absensi</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-user-plus card-icon text-info"></i>
+                <h5 class="card-title">Rekrutmen</h5>
+                <p class="card-text">Pantau dan kelola proses rekrutmen pelamar dari awal hingga selesai.</p>
+                <a href="{{ url_for('recruitment') }}" class="btn btn-primary mt-auto">Lihat Rekrutmen</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-plane-departure card-icon text-warning"></i>
+                <h5 class="card-title">Cuti</h5>
+                <p class="card-text">Kelola pengajuan dan persetujuan permintaan cuti karyawan.</p>
+                <a href="{{ url_for('leave') }}" class="btn btn-primary mt-auto">Kelola Cuti</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-money-bill-wave card-icon text-danger"></i>
+                <h5 class="card-title">Penggajian</h5>
+                <p class="card-text">Proses penggajian karyawan dan lihat riwayat pembayaran.</p>
+                <a href="{{ url_for('payroll') }}" class="btn btn-primary mt-auto">Kelola Penggajian</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-project-diagram card-icon text-secondary"></i>
+                <h5 class="card-title">Proyek</h5>
+                <p class="card-text">Pantau proyek yang sedang berjalan dan alokasi karyawan.</p>
+                <a href="{{ url_for('projects') }}" class="btn btn-primary mt-auto">Lihat Proyek</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-clock card-icon text-primary"></i>
+                <h5 class="card-title">Penjadwalan</h5>
+                <p class="card-text">Buat dan kelola jadwal tugas atau kegiatan karyawan.</p>
+                <a href="{{ url_for('scheduling') }}" class="btn btn-primary mt-auto">Kelola Penjadwalan</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-cog card-icon text-dark"></i>
+                <h5 class="card-title">Pengaturan</h5>
+                <p class="card-text">Konfigurasi aplikasi dan kelola pengguna serta integrasi.</p>
+                <a href="{{ url_for('settings') }}" class="btn btn-primary mt-auto">Buka Pengaturan</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-section {
+        background: linear-gradient(45deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+        color: white;
+        border-radius: 1rem;
+        margin-top: 2rem; /* Menambahkan margin atas untuk hero section */
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Edit Proyek</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nama Proyek</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ project.name }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Deskripsi</label>
+        <textarea class="form-control" id="description" name="description" rows="3">{{ project.description }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status Proyek</label>
+        <select class="form-select" id="status" name="status" required>
+            <option value="Planned" {% if project.status == 'Planned' %}selected{% endif %}>Terencana</option>
+            <option value="In Progress" {% if project.status == 'In Progress' %}selected{% endif %}>Sedang Berlangsung</option>
+            <option value="Completed" {% if project.status == 'Completed' %}selected{% endif %}>Selesai</option>
+            <option value="On Hold" {% if project.status == 'On Hold' %}selected{% endif %}>Ditunda</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+    <a href="{{ url_for('projects') }}" class="btn btn-secondary">Batal</a>
+</form>
+{% endblock %}

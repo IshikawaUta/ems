@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-4 mb-4 rounded-3 text-center hero-section-mini">
+    <div class="container-fluid py-3">
+        <h1 class="display-6 fw-bold text-white mb-2">Pengaturan Aplikasi</h1>
+        <p class="fs-5 mx-auto text-white-50">Sesuaikan aplikasi manajemen karyawan Anda.</p>
+    </div>
+</div>
+
+<h2 class="text-center mb-4 mt-5">Modul Pengaturan</h2>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-cogs card-icon text-primary"></i> {# Ikon untuk Pengaturan Umum #}
+                <h5 class="card-title">Informasi Umum Aplikasi</h5>
+                <p class="card-text">Kelola nama perusahaan, zona waktu default, dan pengaturan dasar lainnya.</p>
+                <a href="{{ url_for('manage_settings') }}" class="btn btn-primary mt-auto">Kelola Pengaturan Umum</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-users-cog card-icon text-info"></i> {# Ikon untuk Manajemen Pengguna #}
+                <h5 class="card-title">Manajemen Pengguna & Peran</h5>
+                <p class="card-text">Kelola pengguna aplikasi dan atur peran (admin, manajer, karyawan) untuk kontrol akses fitur.</p>
+                <a href="{{ url_for('users_list') }}" class="btn btn-primary mt-auto">Kelola Pengguna</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 dashboard-card">
+            <div class="card-body">
+                <i class="fas fa-puzzle-piece card-icon text-success"></i> {# Ikon untuk Integrasi #}
+                <h5 class="card-title">Integrasi Sistem</h5>
+                <p class="card-text">Konfigurasi integrasi dengan sistem lain jika diperlukan, seperti HRIS atau sistem penggajian.</p>
+                <a href="{{ url_for('manage_integrations') }}" class="btn btn-primary mt-auto">Konfigurasi Integrasi</a>
+            </div>
+        </div>
+    </div>
+    {# Anda bisa menambahkan lebih banyak kartu untuk sub-pengaturan lainnya di sini jika ada #}
+</div>
+
+<style>
+    /* Styling khusus untuk bagian header mini di halaman pengaturan */
+    .hero-section-mini {
+        background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+        color: white;
+        border-radius: 1rem;
+        margin-top: 1rem;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+    }
+</style>
+{% endblock %}

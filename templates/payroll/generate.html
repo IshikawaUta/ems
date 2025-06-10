@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Generate Gaji Karyawan</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="employee_id" class="form-label">Pilih Karyawan</label>
+        <select class="form-select" id="employee_id" name="employee_id" required>
+            <option value="">-- Pilih Karyawan --</option>
+            {% for employee in employees %}
+                <option value="{{ employee._id }}">{{ employee.name }} ({{ employee.position }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="basic_salary" class="form-label">Gaji Pokok</label>
+        <input type="number" class="form-control" id="basic_salary" name="basic_salary" step="0.01" required>
+    </div>
+    <div class="mb-3">
+        <label for="allowances" class="form-label">Tunjangan</label>
+        <input type="number" class="form-control" id="allowances" name="allowances" value="0" step="0.01">
+    </div>
+    <div class="mb-3">
+        <label for="deductions" class="form-label">Potongan</label>
+        <input type="number" class="form-control" id="deductions" name="deductions" value="0" step="0.01">
+    </div>
+    <button type="submit" class="btn btn-primary">Generate Gaji</button>
+    <a href="{{ url_for('payroll') }}" class="btn btn-secondary">Kembali</a>
+</form>
+{% endblock %}

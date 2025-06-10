@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Tambah Karyawan Baru</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nama Karyawan</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="position" class="form-label">Jabatan</label>
+        <input type="text" class="form-control" id="position" name="position" required>
+    </div>
+    <div class="mb-3">
+        <label for="contact" class="form-label">Informasi Kontak</label>
+        <input type="text" class="form-control" id="contact" name="contact">
+    </div>
+    <button type="submit" class="btn btn-primary">Tambah</button>
+    <a href="{{ url_for('employees') }}" class="btn btn-secondary">Batal</a>
+</form>
+{% endblock %}

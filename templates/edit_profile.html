@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-7 col-lg-6">
+        <div class="card shadow-lg border-0 rounded-3">
+            <div class="card-header bg-gradient-primary text-white text-center py-4 rounded-top-3">
+                <i class="fas fa-user-edit fa-3x mb-2"></i>
+                <h2 class="mb-0 fw-bold">Edit Profil</h2>
+                <p class="mb-0">{{ user.username }}</p>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Kata Sandi Baru (Biarkan kosong jika tidak ingin mengubah)</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="******">
+                        <div class="form-text">Isi bidang ini hanya jika Anda ingin mengubah kata sandi Anda.</div>
+                    </div>
+                    {# Role tidak bisa diedit sendiri oleh pengguna, hanya admin #}
+                    <div class="mb-3">
+                        <label class="form-label">Peran (Role)</label>
+                        <input type="text" class="form-control" value="{{ user.role.capitalize() }}" disabled>
+                        <div class="form-text">Peran Anda hanya dapat diubah oleh Administrator.</div>
+                    </div>
+                    <hr>
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save me-2"></i>Simpan Perubahan</button>
+                        <a href="{{ url_for('profile') }}" class="btn btn-secondary"><i class="fas fa-arrow-left me-2"></i>Kembali ke Profil</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
