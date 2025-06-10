@@ -7,8 +7,9 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Import instance Flask app Anda dari app.py
-# Pastikan nama variabel Flask app di app.py adalah 'app'
-from app import app as application # Ganti 'app' dengan nama variabel aplikasi Flask Anda
+# Vercel mencari variabel bernama 'app' atau 'handler'.
+# Pastikan nama variabel Flask app di app.py adalah 'app' (seperti yang sudah kita gunakan)
+from app import app # Import langsung sebagai 'app'
 
-# Vercel secara otomatis akan mencari objek 'application' yang dapat dipanggil
+# Vercel secara otomatis akan mencari objek 'app' atau 'handler' yang dapat dipanggil
 # untuk menjalankan aplikasi WSGI/ASGI.
